@@ -1,3 +1,5 @@
+package com.experiment;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -7,6 +9,7 @@ import java.io.IOException;
 
 public class ForwardServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("ForwardServlet.doGet called");
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/forwarded");
         dispatcher.forward(req, resp);
     }
