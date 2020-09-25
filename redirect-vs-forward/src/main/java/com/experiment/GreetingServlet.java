@@ -1,6 +1,7 @@
 package com.experiment;
 
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,5 +17,8 @@ public class GreetingServlet extends HttpServlet {
         String uri = req.getRequestURI();
 
         resp.getWriter().println(uri + " is greeting you, stranger");
+        for (Cookie cookie : req.getCookies()) {
+            resp.getWriter().println("Cookie: " + cookie.getName() + "=" + cookie.getValue());
+        }
     }
 }
